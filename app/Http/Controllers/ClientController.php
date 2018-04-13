@@ -39,7 +39,7 @@ class ClientController extends Controller
                 DB::table('clients')
                 ->where('username', $username)
                 ->update($client);
-                return redirect('/manage-clients')->with('info', 'Client updated successfully!');
+                return redirect('/manage-clients')->with('info', 'Customer updated successfully!');
             }
         catch (\Exception $e) {
                 return back()->with('error', 'Update unsuccessful!');
