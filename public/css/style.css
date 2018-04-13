@@ -1,0 +1,24 @@
+#footer{
+	margin-top: 30px;
+	padding: 10px;
+	color: #fff;
+	background: #0c84e4;
+}
+#footer p{
+	margin-bottom: 0px;
+}
+.span3 {  
+    height: 400px !important;
+    overflow-y: scroll;
+    font-size: 90%;
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+.span4 {  
+    height: 200px !important;
+    overflow-y: scroll;
+    font-size: 90%;
+}
