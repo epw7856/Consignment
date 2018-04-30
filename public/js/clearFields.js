@@ -5,6 +5,7 @@ function clearFields(){
 	document.getElementById('loc1').value = "";
 	document.getElementById('title1').value = "";
 	document.getElementById('received1').value = "";
+	document.getElementById('listed1').value = "";
 	document.getElementById('qty1').value = "";
 	document.getElementById('platform1').value = "";
 	document.getElementById('r1').checked = false;

@@ -106,8 +106,8 @@
                         </div>
                       @endforeach
                     @endif
-                  </div>
-                  </div>
+                    </div>
+                    </div>
 
 
                     <div class="row">
@@ -145,7 +145,14 @@
                       <div class="col-md-3">
                         <div class="form-group">
                           <label for="received1">Date Received</label>
-                          <input type="text" name="received" class="form-control" id="received1" aria-describedby="emailHelp" placeholder="mm/dd/yyyy">
+                          <input type="text" name="received" class="form-control datepicker" id="received1" aria-describedby="emailHelp" placeholder="mm/dd/yyyy">
+                        </div>
+                      </div>
+
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="listed1">Date Listed</label>
+                          <input type="text" name="listed" class="form-control datepicker" id="listed1" aria-describedby="emailHelp" placeholder="mm/dd/yyyy">
                         </div>
                       </div>
 
@@ -191,8 +198,17 @@
 
                 <div class="card-header border"><h2>Active Inventory</h2></div>
               
-                  <div class="span3 border">
-                            <table class="table table-fixed table-striped">
+                            <table class="specialTable">
+                              <col width="5.5%"> <!-- Cust ID -->
+                              <col width="4.5%"> <!-- SKU -->
+                              <col width="4.5%"> <!-- LOC -->
+                              <col width="13.75%"> <!-- Item ID -->
+                              <col width="32.45%"> <!-- Item Title -->
+                              <col width="8.35%"> <!-- Listed -->
+                              <col width="4.0%"> <!-- Qty -->
+                              <col width="7.25%"> <!-- Platform -->
+                              <col width="6.90%"> <!-- Status -->
+                              <col width="11.80%"> <!-- Action -->
                               <thead>
                                 <tr>
                                 @if(!empty($listed))
@@ -202,24 +218,36 @@
                                   <th scope="col">Loc</th>
                                   <th scope="col">Item ID</th>
                                   <th scope="col">Item Title</th>
-                                  <th scope="col">Received</th>
+                                  <th scope="col">Listed</th>
                                   <th scope="col">Qty</th>
                                   <th scope="col">Platform</th>
                                   <th scope="col">Status</th>
                                   <th scope="col">Action</th>
                                 </tr>
                               </thead>
+                            </table>
+                            <div class="span3 border">
+                            <table class="table table-fixed table-striped">
                               <tbody>
-                                
+                              <col width="5.5%">
+                              <col width="4.5%">
+                              <col width="4.5%"> <!--23.5-->
+                              <col width="13.75%"> <!--19.75-->
+                              <col width="32.45%">
+                              <col width="8.35%">
+                              <col width="4.0%">
+                              <col width="7.25%">
+                              <col width="6.90%">
+                              <col width="11.80%">
                                       @foreach($listed->all() as $listed)
                                   <tr>
                                   <td>{{ $listed->custid }}</td>
                                   <td>{{ $listed->sku }}</td>
                                   <td>{{ $listed->loc }}</td>
                                   <td>{{ $listed->itemid }}</td>
-                                  <td>{{ $listed->title }}</td>
+                                  <td class="specialtd">{{ $listed->title }}</td>
                                   <td>@php 
-                                        echo App\Http\Controllers\UserController::dtform($listed->received, "Y-m-d", "-", "/");
+                                        echo App\Http\Controllers\UserController::dtform($listed->listed, "Y-m-d", "-", "/");
                                       @endphp</td>
                                   <td>{{ $listed->qty }}</td>
                                   <td>{{ $listed->platform }}</td>
@@ -241,8 +269,18 @@
 
 
                             <div class="card-header border"><h2>Sold Inventory</h2></div>
-                            <div class="span3 border">
-                            <table class="table table-striped table-hover">
+                           
+                            <table class="specialTable">
+                                <col width="5.5%"> <!-- Cust ID -->
+                                <col width="13%"> <!-- Item ID -->
+                                <col width="25.00%"> <!-- Item Title -->
+                                <col width="8.35%"> <!-- Listed -->
+                                <col width="8.35%"> <!-- Sold -->
+                                <col width="7%"> <!-- Sale Amt -->
+                                <col width="7%"> <!-- Costs -->
+                                <col width="7%"> <!-- Fee -->
+                                <col width="7%"> <!-- Amt Due -->
+                                <col width="10.80%"> <!-- Action -->
                               <thead>
                                 <tr>
                                 @if(!empty($sold))
@@ -253,21 +291,33 @@
                                   <!--<th scope="col">Status</th>-->
                                   <th scope="col">Listed</th>
                                   <th scope="col">Sold</th>
-                                  <th scope="col">Sales ID</th>
-                                  <th scope="col">Sale Amt</th>
-                                  <th scope="col">Consign Pct</th>
-                                  <th scope="col">Consign Fee</th>
-                                  <th scope="col">Amt Due</th>
+                                  <!--<th scope="col">Sales ID</th>-->
+                                  <th scope="col">Sale</th>
+                                  <th scope="col">Costs</th>
+                                  <th scope="col">Fee</th>
+                                  <th scope="col">Due</th>
                                   <th scope="col">Action</th>
                                 </tr>
                               </thead>
+                            </table>
+                            <div class="span3 border">
+                            <table class="table table-fixed table-striped">
                               <tbody>
-                                
+                                <col width="5.5%"> <!-- Cust ID -->
+                                <col width="13%"> <!-- Item ID -->
+                                <col width="25.00%"> <!-- Item Title -->
+                                <col width="8.35%"> <!-- Listed -->
+                                <col width="8.35%"> <!-- Sold -->
+                                <col width="7%"> <!-- Sale Amt -->
+                                <col width="7%"> <!-- Costs -->
+                                <col width="7%"> <!-- Fee -->
+                                <col width="7%"> <!-- Amt Due -->
+                                <col width="10.80%"> <!-- Action -->
                                       @foreach($sold->all() as $sold)
                                   <tr>
                                   <td>{{ $sold->custid }}</td>
                                   <td>{{ $sold->itemid }}</td>
-                                  <td>{{ $sold->title }}</td>
+                                  <td class="specialtd">{{ $sold->title }}</td>
                                   <!--<td>{{ $sold->status }}</td>-->
                                   <td>@php 
                                         echo App\Http\Controllers\UserController::dtform($sold->listed, "Y-m-d", "-", "/");
@@ -275,9 +325,9 @@
                                   <td>@php 
                                         echo App\Http\Controllers\UserController::dtform($sold->sold, "Y-m-d", "-", "/");
                                       @endphp</td>
-                                  <td>{{ $sold->salesid }}</td>
+                                  <!--<td>{{ $sold->salesid }}</td>-->
                                   <td>${{ $sold->saleamt }}</td>
-                                  <td>{{ $sold->fee }}%</td>
+                                  <td>${{ $sold->costs }}</td>
                                   <td>${{ $sold->consignfee }}</td>
                                   <td>${{ $sold->due }}</td>
                                   <td>
@@ -298,4 +348,5 @@
       </div>
 </div>
 <script src="{{ url('js/clearFields.js') }}"></script>
+<script src="{{ url('js/calendar.js') }}"></script>
 @endsection

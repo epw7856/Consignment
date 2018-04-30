@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Inventory extends Model
 {
     public $timestamps = false;
-    protected $dates = ['received'];
+    protected $dates = ['listed', 'received'];
 }

@@ -78,7 +78,14 @@
                       <div class="col-md-3">
                         <div class="form-group">
                           <label for="received1">Date Received</label>
-                          <input type="text" name="received" class="form-control" id="received1" value="@php echo App\Http\Controllers\UserController::dtform($itemid->received, "Y-m-d", "-", "/");@endphp" placeholder="Date Received">
+                          <input type="text" name="received" class="form-control datepicker" id="received1" value="@php echo App\Http\Controllers\UserController::dtform($itemid->received, "Y-m-d", "-", "/");@endphp" placeholder="Date Received">
+                        </div>
+                      </div>
+
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="listed1">Date Listed</label>
+                          <input type="text" name="listed" class="form-control datepicker" id="listed1" value="@php echo App\Http\Controllers\UserController::dtform($itemid->listed, "Y-m-d", "-", "/");@endphp" placeholder="Date Listed">
                         </div>
                       </div>
 
@@ -119,18 +126,11 @@
 
                    
                         <div class="row">
-                          <div class="col-md-3">
-                            <div class="form-group">
-                              <label for="listed1">Date Listed</label>
-                              <input type="text" name="listed" class="form-control" id="listed1" value="<?php if (property_exists($itemid, 'listed')){ echo App\Http\Controllers\UserController::dtform($itemid->listed, "Y-m-d", "-", "/");}  
-                              ?>" placeholder="Date Listed" disabled>
-                            </div>
-                          </div>
 
                           <div class="col-md-3">
                             <div class="form-group">
                               <label for="sold1">Date Sold</label>
-                              <input type="text" name="sold" class="form-control" id="sold1" value="<?php if (property_exists($itemid, 'sold')){echo App\Http\Controllers\UserController::dtform($itemid->sold, "Y-m-d", "-", "/");}?>" placeholder="Date Sold" disabled>
+                              <input type="text" name="sold" class="form-control datepicker" id="sold1" value="<?php if (property_exists($itemid, 'sold')){echo App\Http\Controllers\UserController::dtform($itemid->sold, "Y-m-d", "-", "/");}?>" placeholder="Date Sold" disabled>
                             </div>
                           </div>
 
@@ -179,4 +179,5 @@
     </div>
   </div>
 <script src="{{ url('js/showSold.js') }}"></script>
+<script src="{{ url('js/calendar.js') }}"></script>
 @endsection

@@ -11,6 +11,7 @@
     height: 400px !important;
     overflow-y: scroll;
     font-size: 90%;
+    
 }
 .vcenter {
     display: inline-block;
@@ -18,7 +19,24 @@
     float: none;
 }
 .span4 {  
-    height: 200px !important;
+    height: 300px !important;
     overflow-y: scroll;
     font-size: 90%;
+}
+
+.specialTable, th, td {
+    text-align:center; 
+    vertical-align:middle;
+    width:calc(100% - 18px);
+    /*border: 1px solid black;*/
+}
+
+.specialtd {
+    text-align: left; 
+}
+
+.specialtbody {
+    display: block; 
+    height: 100px; 
+    overflow-y: scroll
 }

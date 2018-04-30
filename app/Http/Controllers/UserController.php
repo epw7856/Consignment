@@ -58,6 +58,7 @@ class UserController extends Controller
             'qty' => 'required|integer',
             'platform' => 'nullable|string',
             'status' => 'required',
+            'listed' => 'nullable|date_format:"m/d/Y"|after:received',
         ]);
 
         $item = array(
@@ -70,6 +71,7 @@ class UserController extends Controller
             'qty' => $request->input('qty'),
             'platform' => strtoupper($request->input('platform')),
             'status' => $request->get('status'),
+            'listed' => self::dtform($request->input('listed'),"m/d/Y","/","-"),
         );
 
         return $item;
@@ -87,8 +89,8 @@ class UserController extends Controller
             'qty' => 'required|integer',
             'platform' => 'nullable|required|string',
             'status' => 'required',
-            'listed' => 'nullable|date_format:"m/d/Y"',
-            'sold' => 'nullable|date_format:"m/d/Y"',
+            'listed' => 'nullable|date_format:"m/d/Y"|after:received',
+            'sold' => 'nullable|date_format:"m/d/Y"|after:listed',
             'salesid' => 'nullable|integer',
             'saleamt' => "required|regex:/^\d*(\.\d{1,2})?$/|min:0.00",
             'costs' => "required|regex:/^\d*(\.\d{1,2})?$/|min:0.00",
@@ -138,6 +140,7 @@ class UserController extends Controller
         $inventory->qty = $item['qty'];
         $inventory->platform = $item['platform'];
         $inventory->status = $item['status'];
+        $inventory->listed = $item['listed'];
 
         try {
             $inventory->save();
@@ -238,6 +241,7 @@ class UserController extends Controller
             $inventory->qty = $item['qty'];
             $inventory->platform = $item['platform'];
             $inventory->status = $item['status'];
+            $inventory->listed = $item['listed'];
 
             try {
                 $inventory->save();

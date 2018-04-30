@@ -24,6 +24,7 @@ class CreateInventoriesTable extends Migration
             $table->integer('qty');
             $table->string('platform')->nullable();
             $table->string('status');
+            $table->date('listed')->nullable();
         });
     }
 

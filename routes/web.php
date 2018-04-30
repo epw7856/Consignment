@@ -31,5 +31,11 @@ Route::post('/insert', 'UserController@insert')->middleware(['admincheck']);
 Route::post('/edit/{itemid}', 'UserController@edit')->middleware(['admincheck']);
 Route::get('/update/{itemid}', 'UserController@update')->middleware(['admincheck']);
 Route::get('/delete/{itemid}', 'UserController@delete')->middleware(['admincheck']);
-Route::get('/manage-clients', 'ClientController@view')->middleware(['admincheck']);
+Route::get('/manage-customers', 'ClientController@view')->middleware(['admincheck']);
 Route::post('/edit-client', 'ClientController@edit')->middleware(['admincheck'])->name('client.data');
+Route::get('/manage-customers/{username}', 'ClientController@fill')->middleware(['admincheck']);
+Route::get('/delete-customers/{username}', 'ClientController@delete')->middleware(['admincheck']);
+/*Route::get('/test', function () {
+	return view('test');
+
+});*/

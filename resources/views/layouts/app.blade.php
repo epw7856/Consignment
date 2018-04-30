@@ -11,8 +11,8 @@
 
     <title>{{ 'Consignment Web Portal' }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Scripts ***COMMENTED OUT FOR DATEPICKER*** -->
+    <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -20,13 +20,18 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" >
     <link rel="shortcut icon" href="{{ url('favicon.ico') }}">
     <script type="text/javascript" src="{{ url('js/jquery-3.3.1.js') }}"> </script>
     <script type="text/javascript" src="{{ url('js/bootstrap.js') }}"> </script>
+
+    <!-- DATEPICKER -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   
+</head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
@@ -51,7 +56,7 @@
                               <li class="nav-item">
                                 <?php
                                     if (Illuminate\Support\Facades\Auth::user()->role == 'admin'){ ?>
-                                        <a class="nav-link" href="{{ url('/manage-clients') }}">Manage Customers<span class="sr-only">(current)</span></a>
+                                        <a class="nav-link" href="{{ url('/manage-customers') }}">Manage Customers<span class="sr-only">(current)</span></a>
                                     <?php } ?>
                               </li>
                               
