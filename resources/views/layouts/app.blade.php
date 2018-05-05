@@ -11,8 +11,8 @@
 
     <title>{{ 'Consignment Web Portal' }}</title>
 
-    <!-- Scripts ***COMMENTED OUT FOR DATEPICKER*** -->
-    <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
+    <!-- Scripts ***Required for Nav Bar User Logout*** -->
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -33,7 +33,7 @@
 
     <!-- TABLE SORT -->
     <script src="{{ url('js/jquery.tablesorter.js') }}"></script>
-   
+    
 </head>
 <body>
     <div id="app">

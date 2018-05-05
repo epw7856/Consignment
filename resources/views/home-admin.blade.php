@@ -13,20 +13,10 @@
             <div>
                 <span style="display:block; height: 30px;"></span>
                 <div class="row align-items-center justify-content-center">
+                  
                   <div class="col-md-3">
 
-                    <div class="card border-primary mb-3 text-center font-weight-bold" style="max-width: 20rem;">
-                      <div class="card-header">Items Listed</div>
-                      <div class="card-body">
-                        <h4 class="card-title">@php if (!empty($listed)){ echo count($listed); } else { echo "0"; } @endphp</h4>
-                      </div>
-                    </div>
-                    
-                  </div>
-
-                  <div class="col-md-3">
-
-                    <div class="card border-primary mb-3 text-center font-weight-bold" style="max-width: 20rem;">
+                    <div class="card border-success mb-3 text-center font-weight-bold" style="max-width: 20rem;">
                       <div class="card-header">Items Sold</div>
                       <div class="card-body">
                         <h4 class="card-title">@php if (!empty($sold)){ echo count($sold); } else { echo "0"; } @endphp</h4>
@@ -49,18 +39,18 @@
                   <div class="col-md-3">
 
                     <div class="card border-success mb-3 text-center font-weight-bold" style="max-width: 20rem;">
-                      <div class="card-header">Total Amount Due</div>
+                      <div class="card-header">Sell Through %</div>
                       <div class="card-body">
-                        <h4 class="card-title">$@php echo number_format($due, 2) @endphp</h4>
+                        <h4 class="card-title">@php echo number_format($sellthru, 1) @endphp%</h4>
                       </div>
                     </div>
 
                   </div>
               
-                 </div>
-                 <div class="row align-items-center justify-content-center">
+                 
+                 
                   <!--<div class="col-md-4"></div>-->
-                  <div class="col-md-4">
+                  <div class="col-md-3">
 
                     <div class="card border-success mb-3 text-center font-weight-bold" style="max-width: 20rem;">
                       <div class="card-header">Total Consignment Profit</div>
@@ -70,8 +60,8 @@
                     </div>
                     
                   </div>
-                </div>
-                </div>
+                </div></div>
+              
                 
                 </div>
             </div><span style="display:block; height: 20px;"></span>

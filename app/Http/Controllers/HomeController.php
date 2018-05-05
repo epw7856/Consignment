@@ -50,16 +50,26 @@ class HomeController extends Controller
             $listed = null; $sold = null;
         }
 
-        //Amt Sold, Profit
-        $amt = 0; $profit = 0;
+        //# Items Sold, Gross Amount Sold, Sell Through %, Total Profit
+        $amt = 0; $profit = 0; $sellthru = 0;
         if (!is_null($sold)){
+            if (!is_null($listed)){
+                $sellthru = count($sold) / count($listed);
+            }
+            else {
+                $sellthru = 0;
+            }
             foreach ($sold as $item){
                 $amt += $item->saleamt;
-                $profit += $item->due;
+                $profit += $item->consignfee;
+                //$due += $item->due;
             }
         }
+        else {
+            $sellthru = 0;
+        }
         
-        return view('home', ['listed' => $listed, 'sold' => $sold, 'amt' => $amt, 'profit' => $profit]);
+        return view('home', ['listed' => $listed, 'sold' => $sold, 'amt' => $amt, 'profit' => $profit, 'sellthru' => $sellthru]);
 
     }
 
@@ -77,18 +87,27 @@ class HomeController extends Controller
         ->where('status', 'SOLD')
         ->get();
 
-        //Amt Sold, Consignment Profit, Amount Due
-        $amt = 0; $profit = 0; $due = 0;
+        //# Items Sold, Gross Amount Sold, Sell Through %, Total Profit
+        $amt = 0; $profit = 0; $sellthru = 0;
         if (!is_null($sold)){
+            if (!is_null($listed)){
+                $sellthru = count($sold) / count($listed);
+            }
+            else {
+                $sellthru = 0;
+            }
             foreach ($sold as $item){
                 $amt += $item->saleamt;
-                $profit += $item->consignfee;
-                $due += $item->due;
+                $profit += $item->due;
+                //$due += $item->due;
             }
+        }
+        else {
+            $sellthru = 0;
         }
 
 
-        return view('home-admin', ['listed' => $listed, 'sold' => $sold, 'amt' => $amt, 'profit' => $profit, 'due' => $due]);
+        return view('home-admin', ['listed' => $listed, 'sold' => $sold, 'amt' => $amt, 'profit' => $profit, 'sellthru' => $sellthru]);
     }
 
     
