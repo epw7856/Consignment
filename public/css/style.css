@@ -40,3 +40,9 @@
     height: 100px; 
     overflow-y: scroll
 }
+
+.speciala {
+    text-decoration:none;
+    color:black;
+}
+a#link { color:inherit }

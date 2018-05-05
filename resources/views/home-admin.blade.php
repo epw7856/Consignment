@@ -213,32 +213,48 @@
                                 <tr>
                                 @if(!empty($listed))
                                   @if(count($listed)>0)
-                                  <th scope="col">Cust ID</th>
-                                  <th scope="col">SKU</th>
-                                  <th scope="col">Loc</th>
-                                  <th scope="col">Item ID</th>
-                                  <th scope="col">Item Title</th>
-                                  <th scope="col">Listed</th>
-                                  <th scope="col">Qty</th>
-                                  <th scope="col">Platform</th>
-                                  <th scope="col">Status</th>
-                                  <th scope="col">Action</th>
+                                  <th><div class="sorting"><a href="#" id="link" data-column="0" data-direction="0">Cust ID</a></div></th>
+                                  <th><div class="sorting"><a href="#" id="link" data-column="1" data-direction="0">SKU</a></div></th>
+                                  <th><div class="sorting"><a href="#" id="link" data-column="2" data-direction="0">Loc</a></div></th>
+                                  <th><div class="sorting"><a href="#" id="link" data-column="3" data-direction="0">Item ID</a></div></th>
+                                  <th><div class="sorting"><a href="#" id="link" data-column="4" data-direction="0">Item Title</a></div></th>
+                                  <th><div class="sorting"><a href="#" id="link" data-column="5" data-direction="0">Listed</a></div></th>
+                                  <th><div class="sorting"><a href="#" id="link" data-column="6" data-direction="0">Qty</a></div></th>
+                                  <th><div class="sorting"><a href="#" id="link" data-column="7" data-direction="0">Platform</a></div></th>
+                                  <th><div class="sorting"><a href="#" id="link" data-column="8" data-direction="0">Status</a></div></th>
+                                  <th>Action</th>
                                 </tr>
                               </thead>
                             </table>
+
                             <div class="span3 border">
-                            <table class="table table-fixed table-striped">
+                            <table id="table1" class="table table-fixed table-striped tablesorter">
+                              <col width="5.5%"> <!-- Cust ID -->
+                              <col width="4.5%"> <!-- SKU -->
+                              <col width="4.5%"> <!-- LOC -->
+                              <col width="13.75%"> <!-- Item ID -->
+                              <col width="32.45%"> <!-- Item Title -->
+                              <col width="8.35%"> <!-- Listed -->
+                              <col width="4.0%"> <!-- Qty -->
+                              <col width="7.25%"> <!-- Platform -->
+                              <col width="6.90%"> <!-- Status -->
+                              <col width="11.80%"> <!-- Action -->
+                              <thead>
+                                  <tr style="display:none;">
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                  </tr>
+                              </thead>
                               <tbody>
-                              <col width="5.5%">
-                              <col width="4.5%">
-                              <col width="4.5%"> <!--23.5-->
-                              <col width="13.75%"> <!--19.75-->
-                              <col width="32.45%">
-                              <col width="8.35%">
-                              <col width="4.0%">
-                              <col width="7.25%">
-                              <col width="6.90%">
-                              <col width="11.80%">
+                              
                                       @foreach($listed->all() as $listed)
                                   <tr>
                                   <td>{{ $listed->custid }}</td>
@@ -265,9 +281,9 @@
                                     <h6>No Active Inventory to show!</h6>
                                 @endif
                               </tbody>
-                            </table></div><span style="display:block; height: 50px;"></span>
+                            </table>
 
-
+                            </div><span style="display:block; height: 50px;"></span>
                             <div class="card-header border"><h2>Sold Inventory</h2></div>
                            
                             <table class="specialTable">
@@ -285,23 +301,36 @@
                                 <tr>
                                 @if(!empty($sold))
                                   @if(count($sold)>0)
-                                  <th scope="col">Cust ID</th>
-                                  <th scope="col">Item ID</th>
-                                  <th scope="col">Item Title</th>
-                                  <!--<th scope="col">Status</th>-->
-                                  <th scope="col">Listed</th>
-                                  <th scope="col">Sold</th>
-                                  <!--<th scope="col">Sales ID</th>-->
-                                  <th scope="col">Sale</th>
-                                  <th scope="col">Costs</th>
-                                  <th scope="col">Fee</th>
-                                  <th scope="col">Due</th>
-                                  <th scope="col">Action</th>
+                                  <th><div class="sorting2"><a href="#" id="link" data-column="0" data-direction="0">Cust ID</a></div></th>
+                                  <th><div class="sorting2"><a href="#" id="link" data-column="1" data-direction="0">Item ID</a></div></th>
+                                  <th><div class="sorting2"><a href="#" id="link" data-column="2" data-direction="0">Item Title</a></div></th>
+                                  <th><div class="sorting2"><a href="#" id="link" data-column="3" data-direction="0">Listed</a></div></th>
+                                  <th><div class="sorting2"><a href="#" id="link" data-column="4" data-direction="0">Sold</a></div></th>
+                                  <th><div class="sorting2"><a href="#" id="link" data-column="5" data-direction="0">Sale</a></div></th>
+                                  <th><div class="sorting2"><a href="#" id="link" data-column="6" data-direction="0">Costs</a></div></th>
+                                  <th><div class="sorting2"><a href="#" id="link" data-column="7" data-direction="0">Fee</a></div></th>
+                                  <th><div class="sorting2"><a href="#" id="link" data-column="8" data-direction="0">Due</a></div></th>
+                                  <th>Action</th>
                                 </tr>
                               </thead>
                             </table>
+
                             <div class="span3 border">
-                            <table class="table table-fixed table-striped">
+                            <table id="table2" class="table table-fixed table-striped tablesorter">
+                              <thead>
+                                  <tr style="display:none;">
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                  </tr>
+                              </thead>
                               <tbody>
                                 <col width="5.5%"> <!-- Cust ID -->
                                 <col width="13%"> <!-- Item ID -->
@@ -349,4 +378,5 @@
 </div>
 <script src="{{ url('js/clearFields.js') }}"></script>
 <script src="{{ url('js/calendar.js') }}"></script>
+<script src="{{ url('js/sortInventoryTable.js') }}"></script>
 @endsection

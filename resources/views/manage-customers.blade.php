@@ -77,18 +77,17 @@
                               <thead>
                                 <tr>
                                  @if(count($client)>0)
-                                  <th scope="col">Name</th>
-                                  <th scope="col">Username</th>
-                                  <th scope="col">Customer ID</th>
-                                  <th scope="col">Action</th>
+                                  <th><div class="sorting"><a href="#" id="link" data-column="0" data-direction="0">Name</a></div></th>
+                                  <th><div class="sorting"><a href="#" id="link" data-column="1" data-direction="0">Username</a></div></th>
+                                  <th><div class="sorting"><a href="#" id="link" data-column="2" data-direction="0">Customer ID</a></div></th>
+                                  <th>Action</th>
                                 </tr>
                               </thead>
                             </table>
-                            <div class="span4 border">
-                            <table class="table table-fixed table-striped">
-                              
-                              <tbody>
 
+                            <div class="span4 border">
+                            <table id="table1" class="table table-fixed table-striped tablesorter">
+                              <tbody>
                                 <col width="40%">
                                 <col width="20%">
                                 <col width="20%">
@@ -119,5 +118,5 @@
     </div>
   </div>
 
-<script src="{{ url('js/showClient.js') }}"></script>
+<script src="{{ url('js/sortCustomerTable.js') }}"></script>
 @endsection
