@@ -58,7 +58,7 @@ class UserController extends Controller
             'qty' => 'required|integer',
             'platform' => 'nullable|string',
             'status' => 'required',
-            'listed' => 'nullable|date_format:"m/d/Y"|after:received',
+            'listed' => 'required|nullable|date_format:"m/d/Y"|after:received',
         ]);
 
         $item = array(
@@ -89,11 +89,11 @@ class UserController extends Controller
             'qty' => 'required|integer',
             'platform' => 'nullable|required|string',
             'status' => 'required',
-            'listed' => 'nullable|date_format:"m/d/Y"|after:received',
-            'sold' => 'nullable|date_format:"m/d/Y"|after:listed',
+            'listed' => 'required|nullable|date_format:"m/d/Y"|after:received',
+            'sold' => 'required|nullable|date_format:"m/d/Y"|after:listed',
             'salesid' => 'nullable|integer',
             'saleamt' => "required|regex:/^\d*(\.\d{1,2})?$/|min:0.00",
-            'costs' => "required|regex:/^\d*(\.\d{1,2})?$/|min:0.00",
+            'costs' => "required|regex:/^\d*(\.\d{1,2})?$/|min:0.00|between:0.00,saleamt",
             'pct' => 'required|numeric|between:0.00,100.00',
         ]);
 
