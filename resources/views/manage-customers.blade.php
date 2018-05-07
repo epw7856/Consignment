@@ -5,7 +5,20 @@
     <div class="row">
       <div class="col-md-8">
 
-        <div class="row">
+        <span style="display:block; height: 25px;"></span>
+
+        <form class="horizontal" method="POST" action="{{ route('client.data') }}">
+        {{csrf_field()}}
+          <fieldset>
+            <div class="card-header"><h2>Update Customer ID</h2><span style="display:block; height: 20px;"></span>
+            @if(count($errors) > 0)
+              @foreach($errors->all() as $error)
+                <div class="alert alert-danger">
+                  {{$error}}
+                </div>
+              @endforeach
+            @endif
+            <div class="row">
                   <div class="col-md-16 col-lg-16">
                     @if(session('info'))
                     <div class="alert alert-success">
@@ -19,19 +32,7 @@
                     </div>
                     @endif
                   </div>
-        </div><span style="display:block; height: 25px;"></span>
-
-        <form class="horizontal" method="POST" action="{{ route('client.data') }}">
-        {{csrf_field()}}
-          <fieldset>
-            <div class="card-header"><h2>Update Customer ID</h2><span style="display:block; height: 20px;"></span>
-            @if(count($errors) > 0)
-              @foreach($errors->all() as $error)
-                <div class="alert alert-danger">
-                  {{$error}}
-                </div>
-              @endforeach
-            @endif
+            </div>
 
             <div class="row">
                     

@@ -14,7 +14,7 @@
            <span style="display:block; height: 20px;"></span>
           <div class="row justify-content-center align-items-center">
                     <h5>Current Date Filter: @php if (is_null($date)||($date=='All Time')||($date=='default')){ echo "None"; } else if ($date=='Current Month'){ echo Illuminate\Support\Carbon::now()->format('M'); echo " "; echo Illuminate\Support\Carbon::now()->format('Y');} else if ($date=='Current Year'){ echo Illuminate\Support\Carbon::now()->format('Y');}  else if ($date=='Current Week'){ echo "&nbsp"; echo Illuminate\Support\Carbon::now()->startOfWeek()->format('M d Y'); echo "&nbsp&nbspto&nbsp&nbsp"; echo Illuminate\Support\Carbon::now()->endOfWeek()->format('M d Y');} @endphp</h5>
-                    <span style="display:block; width: 60px;"></span><h5>Current Customer Filter: @php if (is_null($customer)||($customer=='All Customers')||($customer=='default')){ echo "None"; } else { echo $customer;} @endphp</h5>
+                    <span style="display:block; width: 60px;"></span><h5>Current Customer Filter: @php if (is_null($customer)||($customer=='default')){ echo "None"; } else { echo $customer;} @endphp</h5>
           </div>
 
 
@@ -322,95 +322,7 @@
 
 
                             <span style="display:block; height: 50px;"></span>
-                            <div class="card-header border"><h2>Sold Inventory</h2></div>
-                          @if(!empty($sold))
-                            @if(count($sold)>0)
-                            <table class="specialTable">
-                                <col width="5.5%"> <!-- Cust ID -->
-                                <col width="13%"> <!-- Item ID -->
-                                <col width="25.00%"> <!-- Item Title -->
-                                <col width="8.35%"> <!-- Listed -->
-                                <col width="8.35%"> <!-- Sold -->
-                                <col width="7%"> <!-- Sale Amt -->
-                                <col width="7%"> <!-- Costs -->
-                                <col width="7%"> <!-- Fee -->
-                                <col width="7%"> <!-- Amt Due -->
-                                <col width="10.80%"> <!-- Action -->
-                              <thead>
-                                <tr>
-                                  <th><div class="sorting2"><a href="#" id="link" data-column="0" data-direction="0">Cust ID</a></div></th>
-                                  <th><div class="sorting2"><a href="#" id="link" data-column="1" data-direction="0">Item ID</a></div></th>
-                                  <th><div class="sorting2"><a href="#" id="link" data-column="2" data-direction="0">Item Title</a></div></th>
-                                  <th><div class="sorting2"><a href="#" id="link" data-column="3" data-direction="0">Listed</a></div></th>
-                                  <th><div class="sorting2"><a href="#" id="link" data-column="4" data-direction="0">Sold</a></div></th>
-                                  <th><div class="sorting2"><a href="#" id="link" data-column="5" data-direction="0">Sale</a></div></th>
-                                  <th><div class="sorting2"><a href="#" id="link" data-column="6" data-direction="0">Costs</a></div></th>
-                                  <th><div class="sorting2"><a href="#" id="link" data-column="7" data-direction="0">Fee</a></div></th>
-                                  <th><div class="sorting2"><a href="#" id="link" data-column="8" data-direction="0">Due</a></div></th>
-                                  <th>Action</th>
-                                </tr>
-                              </thead>
-                            </table>
-
-                            <div class="span3 border">
-                            <table id="table2" class="table table-fixed table-striped tablesorter">
-                              <thead>
-                                  <tr style="display:none;">
-                                      <th></th>
-                                      <th></th>
-                                      <th></th>
-                                      <th></th>
-                                      <th></th>
-                                      <th></th>
-                                      <th></th>
-                                      <th></th>
-                                      <th></th>
-                                      <th></th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                <col width="5.5%"> <!-- Cust ID -->
-                                <col width="13%"> <!-- Item ID -->
-                                <col width="25.00%"> <!-- Item Title -->
-                                <col width="8.35%"> <!-- Listed -->
-                                <col width="8.35%"> <!-- Sold -->
-                                <col width="7%"> <!-- Sale Amt -->
-                                <col width="7%"> <!-- Costs -->
-                                <col width="7%"> <!-- Fee -->
-                                <col width="7%"> <!-- Amt Due -->
-                                <col width="10.80%"> <!-- Action -->
-                                      @foreach($sold->all() as $sold)
-                                  <tr>
-                                  <td>{{ $sold->custid }}</td>
-                                  <td>{{ $sold->itemid }}</td>
-                                  <td class="specialtd">{{ $sold->title }}</td>
-                                  <!--<td>{{ $sold->status }}</td>-->
-                                  <td>@php 
-                                        echo App\Http\Controllers\UserController::dtform($sold->listed, "Y-m-d", "-", "/");
-                                      @endphp</td>
-                                  <td>@php 
-                                        echo App\Http\Controllers\UserController::dtform($sold->sold, "Y-m-d", "-", "/");
-                                      @endphp</td>
-                                  <!--<td>{{ $sold->salesid }}</td>-->
-                                  <td>${{ $sold->saleamt }}</td>
-                                  <td>${{ $sold->costs }}</td>
-                                  <td>${{ $sold->consignfee }}</td>
-                                  <td>${{ $sold->due }}</td>
-                                  <td>
-                                    <a href='{{ url("/update/{$sold->itemid}") }}' class="label label-success">Update |</a>
-                                    <a href='{{ url("/delete/{$sold->itemid}") }}' class="label label-danger">Delete</a>
-                                  </td>
-                                      @endforeach 
-                              </tbody>
-                            </table></div>
-
-                          @else
-                              <span style="display:block; height: 20px;"></span>
-                              <h6>No Sold Inventory to show!</h6>
-                            @endif
-                          @else
-                              <h6>No Sold Inventory to show!</h6>
-                          @endif
+                            
 
             </div>
       </div>
