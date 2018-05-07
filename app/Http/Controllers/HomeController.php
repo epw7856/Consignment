@@ -93,7 +93,7 @@ class HomeController extends Controller
             $sellthru = 0;
         }
         
-        //return view('home', ['listed' => $listed, 'sold' => $sold, 'amt' => $amt, 'profit' => $profit, 'sellthru' => $sellthru, 'date' => $date]);
+        return view('home', ['listed' => $listed, 'sold' => $sold, 'amt' => $amt, 'profit' => $profit, 'sellthru' => $sellthru, 'date' => $date]);
 
     }
 
